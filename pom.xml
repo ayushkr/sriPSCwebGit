@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>in.srisrisri.psc</groupId>
-    <artifactId>sriPSCweb</artifactId>
+    <artifactId>sriPSCwebGit</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>sriPSCweb</name>
+    <name>sriPSCwebGit</name>
     <description>sriPSCweb</description>
 
     <parent>
