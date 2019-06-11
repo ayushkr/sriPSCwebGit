@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
 
     <name>sriPSCwebGit</name>
-    <description>sriPSCweb</description>
+    <description>sriPSCwebGit</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
