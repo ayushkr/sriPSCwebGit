@@ -1,0 +1,21 @@
+
+<div class="select_4">
+    Select a pharmacyBill
+    Filter By id <input  type="text" onkeyup="filter('id')"  ><br>
+
+</div>
+
+
+{{for obj}}
+
+<d id='{{:id}}'  >
+    <div id="select_{{:id}}"
+         onclick="selectThis('pharmacyBill', {{:id}}, {{:id}})" 
+         class="select_5">
+        Bill_{{:id}} ___dated_  {{:dateOfBill}} 
+    </div>
+
+</d>
+<br>
+{{/for}}
+

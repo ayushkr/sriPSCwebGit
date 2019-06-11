@@ -1,0 +1,51 @@
+<div id="printableArea"   title="fileStore_List" >
+
+
+
+
+
+    <p class="pageTitle">FileStore</p>
+    
+    Page <span class="w3-badge">{{:obj.pageable.pageNumber+1}}</span>  of {{:obj.totalPages}}
+
+    {{for start=1 end=obj.totalPages+1  itemVar='~page' }}
+    <a {{if false}} class="pageNumberButtonSel" {{else}}  class="pageNumberButton" {{/if}}  href="#/cmd?module=jote&action=/all/list&pageNumber={{:~page}}"> {{:~page}}</a>
+    {{/for}}
+    <br>
+    {{if obj.pageable.pageNumber>0}}
+    <a class="pageNumberButton" href="#/cmd?module=jote&action=/all/list&pageNumber={{:obj.pageable.pageNumber+0}}">Prev</a>
+    {{else}}
+    --
+    {{/if}}
+    {{if obj.pageable.pageNumber< obj.totalPages-1}}
+    <a class="pageNumberButton" href="#/cmd?module=jote&action=/all/list&pageNumber={{:obj.pageable.pageNumber+2}}">Next</a>
+    {{/if}}
+   <table cellspacing="1" cellpadding="5" border="0" style="width:85%;">
+
+        <thead>
+            <tr class="bluestrp">
+                <th>id</th>
+                <th>title_____________</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+
+            {{for obj.content}}
+
+            <tr onclick="go({{:id}})" class="firstrow">
+            
+                <td>{{:id}}</td>
+                <td>{{:title}}</td>
+
+
+            </tr>
+            {{/for}}
+        </tbody>
+
+
+    </table>
+</div>
+
+

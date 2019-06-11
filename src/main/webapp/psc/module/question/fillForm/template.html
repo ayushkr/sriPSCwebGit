@@ -1,0 +1,76 @@
+<!--doctor/CRU_template.html -->
+<br>
+<a class="w3-button w3-blue" data-toggle="tooltip" title="Save" 
+   style="position: fixed;top:0px;"
+   onclick="ckeditor_save('myEditor')">
+    <i class="fa fa-save"  > Save</i>
+</a>
+<div id="printableArea"   title="questionId_{{:id}}" >
+
+    <div class="pageTitle">{{if id==0}} New  question{{else}} Existing question : {{:name}} {{/if}}  </div>
+
+    <form id='form_question' method="post" action="#/cmd/post">   
+        <input type='hidden' name='module_direct' value='question'>
+        <input type='hidden' name='redirect' value=' #/cmdc?module=question&action=/all/list'>
+
+
+        ID <span class="inp2" contenteditable="false" id="id"   data-link="id" >---</span>   <br>
+        <input type="hidden" name="id" data-link="id" />
+
+        <div class="inp_outer" style="min-width:400px;">
+            <div class="title1">Name</div>
+            <span class="inp2" contenteditable="true" id="name"   data-link="name" >---</span>
+            <input type="hidden" name="name" data-link="name" />
+        </div>
+        <!-- <hr>-->
+
+        <a onclick="ckeditor_activate2()">edit</a>
+
+        <!--<span  id='myEditor_span' >--{{:myEditor}}</span>-->
+
+        <br>
+        <div class="inp_outer" style="min-width:400px;">
+            <div class="title1">myEditor</div>
+            <span class="inp2" contenteditable="true" id="myEditor"   data-link="myEditor" >---</span>
+            <input type="hidden" name="myEditor" data-link="myEditor" />
+        </div>
+        
+        <!--        <textarea  class="a" id="myEditor" 
+                        
+                           name="myEditor" cols="35" data-link="myEditor">
+                </textarea>-->
+        <input type="hidden" name="answer" id="answer" data-link="answer" />
+        
+           <div class="inp_outer" style="min-height:10px;"
+                              onclick="document.getElementById('input_file_profileImage').click();"
+                             >
+                        <img  id="form_profileImage_img" 
+                            class="form_profileImage_img" 
+                              src="/uploads/question/{{:id}}_profileImage.jpeg?time={{:creationTime}}" 
+                               alt="question/{{:id}} not loaded"
+                              >
+                        </div>
+        
+        
+        
+        <br>
+<a class="w3-btn w3-gray" onclick="setABCD('{{:answer}}')" >show Answer</a>
+<a class='ayABCD' onclick="setABCD('A')" id='abcd_A' >A</a>
+<a class='ayABCD' onclick="setABCD('B')" id='abcd_B' >B</a>
+<a class='ayABCD' onclick="setABCD('C')" id='abcd_C' >C</a>
+<a class='ayABCD' onclick="setABCD('D')" id='abcd_D' >D</a>
+
+    </form>
+
+    <form id="form_profileImage" 
+          enctype="multipart/form-data" >
+        <input  name='fileLabel' value="{{:id}}_profileImage" type="hidden"     >
+        <input id="input_file_profileImage" name='file'  type="file" 
+               onchange="submitFormAKR('form_profileImage', '/psc/api/question/profileImage');"
+               style="display: none"
+               >
+
+    </form>
+    <br>
+</div>
+

@@ -1,0 +1,22 @@
+
+<h3>
+        This is notice
+        
+        
+</h3>
+<button id="button1" >Go to  Dash </button>
+
+
+
+<script>
+       
+
+                $(document).ready(function(){
+                  $("#button1").click(function(){
+                    $("body").load("/dashboard/dash.html?ran="+Math.random());
+          
+                  });
+          
+                });
+                
+               </script>

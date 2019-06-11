@@ -1,0 +1,87 @@
+<div id="printableArea"   title="PharmacyBill_List" >
+    <h3 >Pharmacy Bill Row</h3>
+       Page {{:obj.pageable.pageNumber+1}} of {{:obj.totalPages}}
+   {{for start=1 end=obj.totalPages+1}}
+   <a class="pageNumberButton" href="#/cmd?module=pharmacyBillRow&action=/all/list&pageNumber={{:}}"> {{:}}</a>
+    {{/for}}
+    <table >
+        <thead>
+            <tr>
+                <th>Bill</th>
+                <th>id</th>
+            
+                <th>item/BrandName</th>
+                <th>Mfg</th>
+                <th>Vendor</th>
+                <th>Batch</th>
+                <th>Exp</th>
+                <th>Qty</th>
+                <th>Rate</th>
+                <th>Dis%</th>
+                <th>GST</th>
+                <th>MRP</th>
+                <th>Amount</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            {{for obj.content}}
+            <tr onclick="go({{:id}})">
+                 <td>bill_{{:pharmacyBill.id}}</td>
+                <td>pbr_{{:id}}</td>
+                
+                {{if medicineStock!=null}}
+                <!--                <td>
+                                    medicineStock_{{:medicineStock.id}}
+                                </td>-->
+                <td>
+                    {{:medicineStock.medicineBrandName.brandName}}
+                </td>
+                <td>
+                    {{:medicineStock.medicineBrandName.company}}
+                </td>
+                <td>
+                    {{:medicineStock.vendor.name}}
+                </td>
+                <td>
+                    {{:medicineStock.batch}}
+                </td>
+                <td>
+                    {{:medicineStock.expiryDate}}
+                </td>
+                <td>{{:qty}}</td>
+
+                <td>
+                    {{:medicineStock.rate}}
+                </td>
+                <td>
+                    {{:medicineStock.discount}}
+                </td>
+                <td>
+                    {{:medicineStock.gst}}
+                </td>
+                <td>
+                    {{:medicineStock.mrp}}
+                </td>
+
+                <td>
+                    {{:amount}}
+                </td>
+              
+                {{else}}
+                Not set
+                {{/if}}
+
+
+
+
+            </tr>
+            {{else}}
+    No members...
+            {{/for}}
+        </tbody>
+
+
+    </table>
+</div>

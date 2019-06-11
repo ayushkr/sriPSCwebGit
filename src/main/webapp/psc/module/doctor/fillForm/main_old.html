@@ -1,0 +1,15 @@
+<div id="menuTop" style="position:absolute;margin-left: 0mm;right:10mm;top:0px;z-index: 10"></div> 
+<script> includeHtml("menuTop", "/clinicPlus/module/entity/crud/update/menuTop.html");</script>
+<div id="formBodyDiv">formBodyDiv</div>
+<script>
+//doctor/fillForm/main
+    aylinker({
+        urlOfTemplate: "/clinicPlus/module/doctor/fillForm/template.html?ran=" + Math.random(),
+        selector: "formBodyDiv",
+        data: mn.module[mn.module.current]
+    });
+
+    $.getScript("/clinicPlus/module/" + mn.module.current + "/1.js");
+
+</script>
+

@@ -1,0 +1,54 @@
+
+<div style="background-color: white">
+    
+    
+
+Select a Medicine Brand Name<br>
+
+Filter By brandName <input  type="text" onkeyup="filter('brandName')"  ><br>
+
+
+
+{{for obj}}
+<d id='{{:id}}' brandName="{{:brandName}}" genericName="{{:genericName}}" >
+    <div class="select_1" id="select_{{:id}}"
+         class="row" onclick="selectThis('medicineBrandName', {{:id}}, '{{:brandName}}')" >
+        <table>
+            <tbody>
+                <tr>
+                    <td class="select_4">id</td>
+                    <td class="select_4">brandName</td>
+                    <td class="select_4">genericName</td>
+                    <td class="select_4">company</td>
+                    <td class="select_4">usedFor</td>
+                    <td class="select_4">type</td>
+                    <td class="select_4">groupid</td>
+                    <td class="select_4">description</td>
+                    <td class="select_4">otder</td>
+
+
+                </tr>
+           
+
+
+           
+                <tr>
+                    <td class="select_4"> <span >{{:id}}</span></td>
+                    <td class="select_4">{{:brandName}}</td>
+                    <td class="select_4" >{{:genericName}}</td>
+                    <td class="select_4">{{:company}}</td>
+                    <td class="select_4">{{:usedFor}}</td>
+                    <td class="select_4">{{:type}}</td>
+                    <td class="select_4">{{:groupid}}</td>
+                    <td class="select_4">{{:description}}</td>
+                    <td class="select_4">{{:other}}</td>
+                </tr>
+            </tbody></table>
+    </div>
+
+</d>
+{{/for}}
+
+
+
+</div>

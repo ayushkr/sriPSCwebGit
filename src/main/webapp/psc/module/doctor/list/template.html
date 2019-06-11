@@ -1,0 +1,54 @@
+<div id="printableArea"   title="Doctor_List" >
+
+  
+    <table cellspacing="1" cellpadding="5" border="0"  style="width:85%;">
+
+        <thead>
+            <tr class="bluestrp">
+                <th></th>
+                <th>id</th>
+                <th>fixed Id</th>
+                <th >Name</th>
+                <th>Dept</th>
+                <th>visitDay</th>
+                <th>visitTime</th>
+                <th>remediesFor</th>
+                <th>Remarks</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+
+            {{for obj.content}}
+
+
+            <tr class="firstrow"
+                onclick="go({{:id}},'doctor')"
+                >
+                <td> 
+                    <img class='img_round' 
+                         src="/uploads/doctor/{{:id}}_profileImage.jpeg?time={{:updationTime}}" 
+                         alt="doctor/{{:id}}"
+                         width=60px>
+
+                </td>
+
+                <td>{{:id}}</td>
+                <td>{{:fixedId}}</td>
+                <td style="min-width: 40mm;">{{:name}}</td>
+                <td>{{:department}}</td>
+                <td>{{:visitDay}}</td>
+                <td>{{:visitTime}}</td>
+                <td>{{:remediesFor}}</td>
+                <td>{{:remarks}}</td>
+
+            </tr>
+            {{else}}
+            No members...
+            {{/for}}
+        </tbody>
+
+
+    </table>
+</div>

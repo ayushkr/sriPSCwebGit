@@ -1,0 +1,36 @@
+
+    th,
+    td {
+      padding: 15px;
+      text-align: left;
+      border: 2px solid dodgerblue;
+    }
+  tr:nth-child(odd) {
+      background-color: #edf1f5;
+    }
+  
+    tr:nth-child(even) {
+        background-color: #c7def5;
+    }
+
+  .flex-container {
+        display: flex;
+        /*background-color: white;*/
+    }
+
+    .flex-container > div {
+        /*background-color:white;*/
+        margin: 10px;
+        padding: 20px;
+
+    }
+
+
+
+
+    .ty{
+        font-size: smaller;
+    }
+    .tz{
+        font-size: large;
+    }

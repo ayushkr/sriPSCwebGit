@@ -1,0 +1,45 @@
+
+<p style="font-size: 24px; font-weight: bold; text-align: justify">
+    Select a Vendor
+</p>
+<table >
+
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>place</th>
+            <th>address</th>
+            <th>phone</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        {{for obj}}
+       <tr onclick="selectThis('vendor',{{:id}},'{{:name}}')">
+         <td class="td1">{{:id}}</td>
+          <td class="td1"> {{:name}} </td>
+        <td class="td1">{{:place}}</td>
+         <td class="td1">{{:address}}</td>
+          <td class="td1">{{:phone}}</td>
+
+        </tr>
+        {{/for}}
+    </tbody>
+
+
+</table>
+
+
+<style>
+    .row{
+        padding: 30px;
+    }
+    
+     .td1{
+        padding: 30px;
+        background-color: white;
+    }
+    
+</style>

@@ -1,0 +1,167 @@
+
+<link rel="stylesheet" href="../clinicPlus/css/steps_1/appointment.css?ran=132">
+<h3>Create Appointment as Follows (4 Steps)</h3>
+<div class="steps">
+    <ul>
+        <li class="step step-1">
+            <a onclick='show_dialog_doctor()'><strong>Step 1</strong><br />Select Doctor <br />
+                <span id='doctor_selected_view' class="c1">---</span>
+            </a>
+        </li>
+        <li class="step step-2">
+            <a onclick='show_dialog_patient()'><strong>Step 2</strong><br />Select Patient <br />
+                <span id='patient_selected_view' class="c1">---</span>
+            </a>
+        </li>
+        <li class="step step-3">
+            <a onclick="show_dialog_date('date_selected_view')"><strong>Step 3</strong><br />Select Date
+                <br>
+                <span id='date_selected_view' class="c1">---</span>
+
+            </a>
+        </li>
+        <li class="step step-4">
+            <a onclick="show_dialog_preview('preview')"><strong>Step 4</strong><br />Review <br />
+                <span id='preview' class="c1">(Not Ready )</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<input name='id' type="text" data-link="id" value="1"> 
+<input name='doctor.id' type="text" data-link="doctor.id" value="1"> 
+  <input name='patient.id' type="text" data-link="patient.id" value="1" > 
+ <input name='dateOfAppointment' type="hidden" data-link="dateOfAppointment"> 
+
+<div id='main2' style="width:100%;position: absolute;top:0cm;left:0cm;z-index: 10;background-color: #aaaaaa;" ></div>
+
+
+
+<script >
+    
+    var test=0;
+
+
+
+
+    function doctor_selection_finished(id) {
+        mn.appointment.doctor=id;
+        $("#doctor_selected_view").html(id);
+        $.get("/clinicPlus/api/doctor/id/" + id+".json",
+            {
+                name: "Donald Duck",
+                city: "Duckburg"
+            },
+            function (dataUnParsed, status) {
+                console.log(dataUnParsed);
+                test=dataUnParsed;
+               // var data=JSON.parse(dataUnParsed);
+               data=dataUnParsed;
+                var html_body = "";
+                html_body += "<b>" + data.name + "</b>";
+                console.log(html_body);
+                $("#doctor_selected_view").html(html_body);
+            });
+
+    }
+
+
+    function patient_selection_finished(id) {
+
+
+    }
+
+    function date_selection_finished(id) {
+    $("#date_selected_view").html(id) ;
+    }
+
+
+   
+
+    function show_dialog_doctor() {
+        $("#main2").load("/clinicPlus/module/doctor/select/view.html?ran=" + Math.random());
+    }
+
+    function show_dialog_patient() {
+        //alert("test");
+        $("#main2").load("/clinicPlus/module/patient/select/2/view.html?ran=" + Math.random());
+    }
+
+    function show_dialog_date() {
+        // alert("date");
+        $("#main2").load("/clinicPlus/module/date/select/view.html?ran=" + Math.random());
+
+    }
+
+    function show_dialog_preview() {
+        // alert("date");
+        $("#main2").load("/clinicPlus/module/appointment/preview/view.html?ran=" + Math.random());
+
+    }
+
+
+
+
+
+    
+    
+    
+</script>
+<style>
+    .c1 {
+        display: block;
+        background-color: rgb(29, 27, 56);
+        color: #fefefe;
+
+    }
+    body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+</style>

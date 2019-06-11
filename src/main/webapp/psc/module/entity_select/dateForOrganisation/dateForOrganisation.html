@@ -1,0 +1,159 @@
+
+<div id="calendarDiv">
+    <center>
+        <div class="outer">
+ 
+
+            <input class="w3-btn" onclick="getTodayJSON()" type="button" value="Show Today" > 
+            <span style="min-width: 3cm;">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <input type="button" class="w3-btn "  value="OK" onclick="dateFinalised()">  
+            
+            <br>
+
+            Year
+            <input type="text" value="2019" id="combo_year" size="10px"  onkeyup="inputChangedByUser()">
+
+            Month
+            <SELECT id="combo_month" onchange="inputChangedByUser()">
+                <OPTION VALUE="1" selected>Jan</option>
+                <OPTION VALUE="2">Feb</option>
+                <OPTION VALUE="3">March</option>
+                <OPTION VALUE="4">April</option>
+                <OPTION VALUE="5">May</option>
+                <OPTION VALUE="6">June</option>
+                <OPTION VALUE="7">July</option>
+                <OPTION VALUE="8">Aug</option>
+                <OPTION VALUE="9">Sep</option>
+                <OPTION VALUE="10">Oct</option>
+                <OPTION VALUE="11">Nov</option> 
+                <OPTION VALUE="12">Dec</option>
+            </SELECT>
+            <!--     <input type="text" value="1" id="combo_month"  onkeyup="inputChangedByUser()">-->
+
+
+            <!--    <SELECT id="combo_year" onchange="inputChangedByUser()">
+                    <OPTION VALUE="2017" selected>2017</option>
+                    <OPTION VALUE="2018" >2018</option>
+                    <OPTION VALUE="2019">2019</option>
+                    <OPTION VALUE="2020">2020</option>
+                    <OPTION VALUE="2020">2021</option>
+                    <OPTION VALUE="2020">2022</option>
+                    <OPTION VALUE="2020">2023</option>
+                    <OPTION VALUE="2020">2024</option>
+                    <OPTION VALUE="2020">2025</option>
+                    <OPTION VALUE="2020">2026</option>
+                    <OPTION VALUE="2020">2027</option>
+                    <OPTION VALUE="2020">2028</option>
+                    <OPTION VALUE="2020">2029</option>
+                    <OPTION VALUE="2020">2030</option>
+                </SELECT>-->
+
+
+
+            <!--<span class='monthStyle1'>December</span><span class='yearStyle1'>2018</span>-->
+            <div id="calendar">calendr body appear here</div>
+            <br>
+          
+        </div>
+    </center>
+</div>
+
+{{:~ayLoad('/clinicPlus/module/entity_select/dateForOrganisation/dateForOrganisation.js')}}
+<style>
+
+    #combo_year,#combo_month{
+        font-size: 20px; */
+    padding: 10px;
+    margin: 10px;
+    position: relative;
+    background-color: inherit;
+    color: white;
+        text-align: center;
+    }
+
+
+
+    .monthPre {
+        color: gray;
+        text-align: center;
+    }
+
+    .monthNow {
+     color: #fdfdfd;
+    text-align: center;
+    /* background-color: white; */
+    font-size: 20px;
+    padding: 10px;
+    }
+
+    .dayNow {
+        border:  2px solid #ceced8;
+        /*color: #FF0000;*/
+        text-align: center;
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    .monthNow:hover, .dayNow:hover{
+        background-color: #2aa3ef;
+        color: white;
+    }
+
+    .td{
+            padding: 10px;
+    width: 69px;
+    }
+
+    .monthNow th {
+        background-color: #000000;
+        color:red;
+        text-align: center;
+        visibility: hidden;
+    }
+
+    .dayNames {
+        background-color: #252a3369;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .yearStyle1 {
+
+        background: rgb(109, 50, 73);
+        color: #FFFFFF;
+        text-align: center;
+        display: block;
+
+    }
+
+    .monthStyle1 {
+
+        background: rgb(52, 109, 40);
+        color: #FFFFFF;
+        text-align: center;
+        display: block;
+
+    }
+
+    .outer{
+        position: relative;
+        padding:1cm;
+        background-color: #044e7bf5;
+        /*width:fit-content;*/
+        height: -webkit-fill-available;
+    }
+
+
+    .dayDiv{
+        padding: 10px;
+    }
+
+    #input_button_today{
+        /*top:10px;*/
+        /*position: absolute;*/
+        /*left: 7cm;*/
+        /*font-size: 9px;*/
+
+    }
+</style> 

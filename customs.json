@@ -1,0 +1,17 @@
+{
+    "elements": {
+        "d": {
+            "attributes": {
+                "name": {},
+                "id": {}
+            }
+        },
+        "style": {},
+        "editor-fold": {}
+    },
+    "attributes": {
+        "pagetitle": {
+            "context": "div"
+        }
+    }
+}

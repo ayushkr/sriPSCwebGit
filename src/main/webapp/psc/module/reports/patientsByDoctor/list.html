@@ -1,0 +1,58 @@
+
+<div id="widgets" >
+    <p class="pageTitle">Report - Income from Consultation
+      
+    </p>
+1)
+    <div onclick="popup_selection_obj(
+                    {
+                        'entity_select': 'doctor',
+                        'input': 'doctor'
+                    })" 
+         class="w3-btn w3-blue">
+        <input type="hidden" id="doctor" name="doctor" data-link="doctor">
+
+        <div id="doctor_display">
+            Select a doctor
+        </div>
+    </div>
+2)
+    <input type="button" id="doctorId" value="Calculate" onclick="popul___()"  class="w3-button w3-green"> 
+3)   <a onclick="printDiv_navOff('navbar')" data-toggle="tooltip" title="Print this page" class="w3-btn w3-blue"> <i class="fa fa-print"> </i>
+        </a>
+
+
+
+</div>
+<hr>
+<div id="printableArea" title="report income by doctors">
+
+
+
+
+    <div id="patientsByDoctor" >
+        <!--alert area placeholder--> 
+    </div>
+</div>
+<script>
+//    /clinicPlus/module/reports/patientsByDoctor/menuTop.html
+
+
+    function popul___() {
+        var id = document.getElementById('doctor').value;
+
+        $.get("/clinicPlus/api/appointment/doctor/" + id, function (result) {
+            aylinker({
+                // urlOfTemplate: "/clinicPlus/module/" +mn.module.current+ "/all/list/template1.html?ran=" + Math.random(),
+                urlOfTemplate: "/clinicPlus/module/reports/patientsByDoctor/listTemplate.html?ran=" + Math.random(),
+                selector: "patientsByDoctor",
+                data: {obj: result,
+                    'doctor': $('#doctor_display').html()
+                }
+            }
+            );
+        });
+    }
+
+
+</script>

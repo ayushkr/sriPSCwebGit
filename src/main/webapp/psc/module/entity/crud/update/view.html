@@ -1,0 +1,44 @@
+<!--entity update view-->
+
+<div id="menuTop_edit" >
+
+</div>
+
+<div id="editTemplate"></div>
+
+<script>
+//entity update view
+    updateCurrentDate('dateCurrent');
+    var path = "/clinicPlus/api/" + mn.module.current + "/" + mn.module[mn.module.current].id;
+    console.log("entity/update/view path " + path);
+    if (mn.module.current !== undefined) {
+        $.get(path, function (result) {
+            console.log("result=" + JSON.stringify(result));
+            result.json = JSON.stringify(result, null, 2);
+            mn.module[mn.module.current] = result;
+            if (mn.module[mn.module.current].id === 'undefined') {
+                result = mn.module['medicineStock_new'];
+            }
+
+            // entity update view
+            aylinker({
+                urlOfTemplate: "/clinicPlus/module/" + mn.module.current + "/fillForm/template.html?ran=" + Math.random(),
+                selector: "editTemplate",
+                data: mn.module[mn.module.current]
+            });
+
+            aylinker({
+                urlOfTemplate: "/clinicPlus/module/entity/crud/update/template_menuTop_update.html?ran=" + Math.random(),
+                selector: "menuTop_edit",
+                data: {'a': mn.module[mn.module.current],
+                    'id': mn.module[mn.module.current].id,
+                    'moduleName':mn.module.current
+                }
+            });
+
+            $.getScript("/clinicPlus/module/" + mn.module.current + "/1.js");
+
+        });
+    }
+</script>
+

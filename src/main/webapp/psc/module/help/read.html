@@ -1,0 +1,45 @@
+<!--doctor/read/template-->
+<div id="printableArea" style="margin-left: 0mm" pageTitle="DoctorId_{{:id}}_{{:name}}">
+     
+     <h3>Doctor Profile - Full Details</h3>
+    <div class="flex-container">
+      
+        <div>
+            <table style="width: 100mm" >
+                <tbody>
+                    <tr><td class="ty"> Picture</td>
+                        <td class="tz"><img 
+                                style="border-radius: 20px;border-color: white;border-width: 2mm;width: 100px" 
+                                src="/clinicPlus/uploads/doctor_{{:id}}?time={{:creationTime}}" ></td></tr>
+                <tr><td class="ty"> id</td><td class="tz">{{:id}}</td></tr>
+                <tr><td class="ty">Name</td><td class="tz">{{:name}}</td></tr>
+                <tr><td class="ty"> department</td><td class="tz">{{:department}}</td></tr>
+                <tr><td class="ty"> visitDay</td><td class="tz">{{:visitDay}}</td></tr>
+                <tr><td class="ty"> visitTime</td><td class="tz">{{:visitTime}}</td></tr>
+                <tr><td class="ty"> description</td><td class="tz">{{:description}}</td></tr>
+                <tr><td class="ty"> fees</td><td class="tz">{{:fees}}</td></tr>
+                <tr><td class="ty">  feeforclinic</td><td class="tz">{{:feeforclinic}}</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div >
+            <table style="width: 100mm">
+                <tbody>
+                <tr><td class="ty"> contactPhone</td><td class="tz">{{:contactPhone}}</td></tr>
+                <tr><td class="ty"> address</td><td class="tz">{{:address}}</td></tr>
+                <tr><td class="ty"> email</td><td class="tz">{{:email}}</td></tr>
+
+                <tr><td class="ty"> rid</td><td class="tz">{{:rid}}</td></tr>
+                <tr><td class="ty"> doctorCode</td><td class="tz">{{:doctorCode}}</td></tr>
+                <tr><td class="ty"> timestamp</td><td class="tz">{{:timestamp}}</td></tr>
+                <tr><td class="ty"> displayId</td><td class="tz">{{:displayId}}</td></tr>
+                <tr><td class="ty"> remarks</td><td class="tz">{{:remarks}}</td></tr>
+</tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <!--printable area-->
+</div>
+

@@ -1,0 +1,47 @@
+<!--entity/read/template-->
+<div id="printableArea" style="margin-left: 0mm" pageTitle="entityId_{{:id}}_{{:name}}">
+
+    <h3>entity Profile - Full Details</h3>
+    <div class="flex-container">
+
+        <div>
+            <table style="width: 100mm" >
+                <tbody>
+                    <tr><td class="ty"> Picture</td>
+                        <td class="tz"><img 
+                                style="border-radius: 20px;border-color: white;border-width: 2mm;width: 100px" 
+                                src="/clinicPlus/uploads/entity_{{:id}}?time={{:creationTime}}" ></td></tr>
+                    <tr><td class="ty"> id</td><td class="tz">{{:id}}</td></tr>
+                    <tr><td class="ty">Name</td><td class="tz">{{:name}}</td></tr>
+                    <tr><td class="ty"> Age</td><td class="tz">{{:age}}</td></tr>
+                    <tr><td class="ty"> sex</td><td class="tz">{{:sex}}</td></tr>
+                    <tr><td class="ty"> Date of Birth</td><td class="tz">{{:dobStr}}</td></tr>
+                    
+                </tbody>
+            </table>
+        </div>
+        <div >
+            <table style="width: 100mm">
+                <tbody>
+                   
+                    <tr><td class="ty"> address</td><td class="tz">{{:address}}</td></tr>
+                     <tr><td class="ty"> contactPhone</td><td class="tz">{{:contactPhone}}</td></tr>
+                      <tr><td class="ty"> guardian phone</td><td class="tz">{{:contactEmergency}}</td></tr>
+                    <tr><td class="ty"> email</td><td class="tz">{{:email}}</td></tr>
+
+                    
+                    <tr><td class="ty"> Updated</td><td class="tz">{{:updationTime}}</td></tr>
+                    <tr><td class="ty"> Created</td><td class="tz">{{:creationTime}}</td></tr>
+                    <tr><td class="ty"> Notes</td><td class="tz">{{:notes}}</td></tr>
+                   
+                    <tr><td class="ty"> remarks</td><td class="tz">{{:remarks}}</td></tr>
+                     <tr><td class="ty"> rid</td><td class="tz">{{:rid}}</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <!--printable area-->
+</div>
+

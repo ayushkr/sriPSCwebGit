@@ -1,0 +1,23 @@
+<h1>welcome </h1>
+<div style="padding-left:130px;padding-right:200px;">
+        <h1>Welcome to SRI HMS !</h1>
+       <p>HMS- Hospital Management Software.</p>
+      
+       <p>
+         <button id="button1" class="btn btn-primary btn-lg"  >Proceed</button>
+        </p>
+     </div>
+
+     <script>
+       
+
+      $(document).ready(function(){
+        $("#button1").click(function(){
+          $("body").load("/dashboard/notice.html?ran="+Math.random());
+
+        });
+
+      });
+      
+     </script>
+     

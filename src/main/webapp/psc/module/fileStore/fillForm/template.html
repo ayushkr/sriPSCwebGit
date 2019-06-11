@@ -1,0 +1,34 @@
+<!--fileStore-->
+<input type="button" value="Save" class="btn btn-success btn-sm"
+       data-toggle="tooltip" title="Save"
+       onclick="$('#form_fileStore').submit();"
+       >
+<br>
+<div id="printableArea"   title="fileStore_{{:id}}" >
+    <br><br>
+    <form id='form_fileStore' method="post" action="#/cmd/post">   
+        <input type='hidden' name='module_direct' value='fileStore'>
+        <input type='hidden' name='redirect' value=' #/cmdc?module=fileStore&action=/all/list'>
+        <input type="hidden" name="id" data-link="id" />
+        <div class="w3-container w3-blue">
+            <h2>fileStore </h2>
+        </div>
+
+        <div class="w3-container" >
+
+            <label for="id">ID</label>  {{:id}}      
+
+            <br>
+            <div class="inp_outer">
+                <div class="title1">title</div>
+                <span class="inp2" contenteditable="true" id="title"   data-link="title" >---</span>
+                <input type="hidden" name="title" data-link="title" />
+            </div>
+
+
+
+        </div>
+    </form>
+</div>
+
+

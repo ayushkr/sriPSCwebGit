@@ -1,0 +1,104 @@
+<div id='main2' >main2</div>
+
+<h3>pharmacy Bill Row</h3>
+
+id {{:id}} <br>
+<input type="hidden" name="id" data-link="id" />
+<hr>
+
+
+<hr>
+
+<div class="inp1" onclick="popup_selection('pharmacyBill')">
+    <div class="title1"   > pharmacyBill</div>
+    {{if pharmacyBill!=null }}
+    <input  type="hidden" id="pharmacyBill" name="pharmacyBill" 
+            value="{{:pharmacyBill.id}}"  />
+    <span id="pharmacyBill_display">     
+        {{:pharmacyBill.id}}         
+    </span>
+
+    {{else}}
+    <input  type="hidden" id="pharmacyBill" name="pharmacyBill" 
+            />
+    <span id="pharmacyBill_display">     
+        Not set                
+    </span>
+
+    {{/if}}   
+
+</div>
+
+<hr>
+
+
+<hr>
+
+<div class="inp1" onclick="popup_selection('medicineStock')" >
+    <div class="title1"    >medicineStock</div>
+    {{if medicineStock!=null}}
+    <input  type="hidden" id="medicineStock" name="medicineStock" 
+            value=" {{:medicineStock.id}}"/>
+    <span id="medicineStock_display">     
+        {{:medicineStock.id}}_ {{:medicineStock.medicineBrandName.brandName}}
+    </span>
+
+    {{else}}
+    <input  type="hidden" id="medicineStock" name="medicineStock" 
+            />
+    <span id="medicineStock_display">     
+        Not set
+    </span>
+    {{/if}}
+
+
+</div>
+<hr>
+
+
+<div class="inp1">
+    <div class="title1">qty</div>
+    <span class="inp2" contenteditable="true" id="qty"   data-link="qty" 
+          onkeydown="calculateAmount(1)" 
+          >---</span>
+    <input type="hidden" name="qty" data-link="qty" onkeydown="calculateAmount(1)" />
+</div>
+
+<hr>
+
+
+<div class="inp1" onclick="calculateAmount(1)">
+    <div class="title1">amount</div>
+    <span class="inp2" contenteditable="false" id="amount_disp"   data-link="amount" 
+
+          >---</span>
+    <input type="hidden" id="amount" name="amount" data-link="amount" />
+</div>
+
+
+<hr>
+<style>
+
+
+    .inp1{
+        font-family: sans-serif;
+        font-size: 14px;
+        display: inline-block;
+        border: solid black 1px;
+       background-color: #bcf2ea;
+        padding: 0px 0px 1px 10px;
+        margin: 3px;
+    }
+
+    .inp2{
+       background-color: #c4e3f3;
+        position: relative;
+        /* top: 10px; */
+        left: 0px;
+        text-align: right;
+        font-weight: bold;
+        font-size: 19px;
+        margin: 9px;
+        padding: 3px;
+    }
+</style>

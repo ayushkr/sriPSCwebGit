@@ -1,0 +1,40 @@
+<div id="printableArea"   title="Doctor_List" >
+
+  
+    <table cellspacing="1" cellpadding="5" border="0"  style="width:85%;">
+
+        <thead>
+            <tr class="bluestrp">
+               
+                <th>id</th>
+               
+                <th>Name</th>
+                
+
+
+            </tr>
+        </thead>
+        <tbody>
+
+            {{for obj.content}}
+
+
+            <tr class="firstrow"
+                onclick="go({{:id}},'question')"
+                >
+               
+
+                <td>{{:id}}</td>
+               
+                <td>{{:name}}</td>
+               
+                
+            </tr>
+            {{else}}
+            No members...
+            {{/for}}
+        </tbody>
+
+
+    </table>
+</div>

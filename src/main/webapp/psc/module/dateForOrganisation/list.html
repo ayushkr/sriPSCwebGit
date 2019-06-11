@@ -1,0 +1,30 @@
+<!--select_patient/list.html-->
+<div id="printableArea"   title="Date_List" >
+<p style="font-size: 24px; font-weight: bold; text-align: justify">Dates in DSC </p>
+
+  <iframe  width="130%" height="259px" src="/clinicPlus/module/dateForOrganisation/calendarFull.html"></iframe>
+    
+    
+    
+
+
+
+<table >
+    <thead>
+        <tr>
+            <th>id</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{for obj.content}}
+        <tr onclick="go({{:id}})">
+            <td>{{:id}}</td>
+        </tr>
+            {{else}}
+    No members...
+      
+        {{/for}}
+    </tbody>
+</table>
+</div>
+

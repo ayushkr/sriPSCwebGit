@@ -1,0 +1,99 @@
+
+<div class="select_4">
+    Select a pharmacyBillRow
+    Filter By appointment.id <input  type="text" onkeyup="filter('appointment.id')"  ><br>
+
+</div>
+
+
+{{for obj}}
+
+<d id='{{:id}}' appointment.id="{{:appointment.id}}" >
+    <div id="select_{{:id}}"
+         onclick="selectThis('pharmacyBillRow', {{:id}}, {{:id}})">
+        <table >
+            <thead>
+                <tr>
+                    <th class="select_4">id</th>
+                    <th class="select_4">appointId</th>
+                    <th class="select_4">item/BrandName</th>
+                    <th class="select_4">Mfg</th>
+                    <th class="select_4">Vendor</th>
+                    <th class="select_4">Batch</th>
+                    <th class="select_4">Exp</th>
+                    <th class="select_4">Qty</th>
+                    <th class="select_4">Rate</th>
+                    <th class="select_4">Dis%</th>
+                    <th class="select_4">GST</th>
+                    <th class="select_4">MRP</th>
+                    <th class="select_4">Amount</th>
+                </tr>
+            </thead>
+            <tbody>         
+                <tr >
+                     <td class="select_4">pb_{{:id}}</td>
+                     <td class="select_4">
+                        {{if appointment!=null}}
+                        Id__{{:appointment.id}}<br>
+                        <!--                <div style="position: relative;left: 1.5cm;width:5cm;">
+                                            Doctor: {{:appointment.doctor.name}} <br>
+                                            Patient : {{:appointment.patient.name}}<br>
+                                            Date: {{:appointment.dateOfAppointment}}<br>
+                                        </div>-->
+                        {{else}}
+                        Not set
+                        {{/if}}
+                    </td>
+                    {{if medicineStock!=null}}
+                    <!--                 <td class="select_4">
+                                        medicineStock_{{:medicineStock.id}}
+                                    </td>-->
+                     <td class="select_4">
+                        {{:medicineStock.medicineBrandName.brandName}}
+                    </td>
+                     <td class="select_4">
+                        {{:medicineStock.medicineBrandName.company}}
+                    </td>
+                     <td class="select_4">
+                        {{:medicineStock.vendor.name}}
+                    </td>
+                     <td class="select_4">
+                        {{:medicineStock.batch}}
+                    </td>
+                     <td class="select_4">
+                        {{:medicineStock.expiryDate}}
+                    </td>
+                     <td class="select_4">{{:qty}}</td>
+
+                     <td class="select_4">
+                        {{:medicineStock.rate}}
+                    </td>
+                     <td class="select_4">
+                        {{:medicineStock.discount}}
+                    </td>
+                     <td class="select_4">
+                        {{:medicineStock.gst}}
+                    </td>
+                     <td class="select_4">
+                        {{:medicineStock.mrp}}
+                    </td>
+
+                     <td class="select_4">
+                        {{:amount}}
+                    </td>
+                     <td class="select_4">pb_{{:id}}</td>
+                    {{else}}
+                    Not set
+                    {{/if}}
+
+
+
+
+                </tr>
+            </tbody>
+        </table>
+        <br>
+    </div>
+</d>
+{{/for}}
+

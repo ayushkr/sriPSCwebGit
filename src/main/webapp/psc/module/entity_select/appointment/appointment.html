@@ -1,0 +1,63 @@
+ <!--select an Appointment-->
+<p class="pageTitle">
+    select an Appointment
+</p>
+Filter By id <input  type="text" onkeyup="filter('id')"  ><br>
+Filter By bookId <input  type="text" onkeyup="filter('bookId')"  ><br>
+Filter By dateOfAppointment <input  type="text" onkeyup="filter('dateOfAppointment')"  ><br>
+Filter By doctor.name <input  type="text" onkeyup="filter('doctor.name')"  ><br>
+Filter By patient.name <input  type="text" onkeyup="filter('patient.name')"  ><br>
+<br>
+
+<div class="Table">
+    <div class="Title">
+    </div>
+
+    <div class="Heading">
+        <div class="Cell"><p>id</p></div>
+         <div class="Cell"><p>book id</p></div>
+        <div class="Cell"><p>date Of Appointment</p></div>
+        <div class="Cell"><p>doctor</p></div>
+        <div class="Cell"><p>patient</p></div>
+         <div class="Cell"><p>action</p></div>
+    </div>
+
+
+ 
+    {{for obj}}
+    <d_json id="json_appointment_{{:id}}" style="display: none"> {{:~jsonise(#data)}}></d_json>
+    <div class="Row" id="select_{{:id}}" >
+         
+       
+        <div class="Cell">  {{:id}} </div>
+         <div class="Cell">  {{:bookId}} </div>
+        <div class="Cell">  {{:dateOfAppointment}} </div>
+        <div class="Cell">  {{:doctor.name}} </div>
+        <div class="Cell"> {{:patient.name}} </div>
+       <div class="Cell"> 
+            <input type="button" class="entity_select_selectButton" 
+                   onclick="selectThis('{{:~root.moduleName}}', {{:id}}, 'No: {{:id}}<br> {{:dateOfAppointment}}<br><b>{{:patient.name}}</b><br>{{:doctor.name}}')"  
+                   value="Select">
+            <input type="button"  
+                   class="entity_select_editButton" 
+                   onclick="populateCreate2('{{:~root.moduleName}}', {{:id}}, 'main3');"
+                   value="Edit"
+                   >
+        </div>
+        
+        
+        <d id='{{:id}}' 
+           bookId='{{:bookId}}' 
+           doctor.name=" {{:doctor.name}}" 
+           patient.name=" {{:patient.name}}"
+           dateOfAppointment="{{:dateOfAppointment}}"
+           >
+        </d>
+
+    </div>
+
+
+
+
+    {{/for}}
+</div>

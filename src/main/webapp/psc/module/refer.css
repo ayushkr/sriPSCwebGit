@@ -1,0 +1,51 @@
+    th :not(.dayNames) {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        background-color: #a8d3ff;
+    }
+    
+
+th,
+td {
+    padding: 15px;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 15px;
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+     display: none;
+    background: dodgerblue;
+    background-color: #f2f2f2;
+    color: white;
+    min-width: 50px;
+    text-align: center;
+    outline: none;
+    border: 2px solid dodgerblue;
+     cursor: pointer;
+    opacity: 0.9;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+* {box-sizing: border-box;}
+
+
+.input-field:focus {
+
+}
+
+/* Set a style for the submit button */
+.btn_i {
+    background-color: dodgerblue;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+   
+}
+
+.btn:hover {
+    opacity: 1;
+}

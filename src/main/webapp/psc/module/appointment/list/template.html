@@ -1,0 +1,86 @@
+<!--select_patient/list.html-->
+<div id="printableArea"   title="Appointment_List" >
+    List of Appointments in DSC
+     <table cellspacing="1" cellpadding="5" border="0"  style="width:85%;">
+
+
+        <thead>
+            <tr class="bluestrp">
+
+                <th>id</th>
+                <th>bookId</th>
+                <th >doctor_________</th>
+                <th >patient________</th>
+                <th>date Of Appointment</th>
+                <th>status</th>
+                <th>type</th>
+                <th>consultFee</th>
+                <th>feeForClinic</th>
+                <th>tokenNumber</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            {{for obj.content}}
+
+            <tr class="firstrow"
+               onclick="go({{:id}},'appointment')"
+                >
+
+
+                <td>{{:id}}</td>
+                <td>{{:bookId}}</td>
+                <td style="width:200px">
+                    {{if doctor!=null}}
+ 
+
+                    <span style="width:200px"> {{:doctor.name}} </span>
+
+
+                    {{else}}
+                    Not set
+                    {{/if}}
+
+                </td>
+
+                <td style="width:200px">
+                    {{if patient!=null}}
+                    
+
+                    {{:patient.name}} <br>
+                    <span class="pageNumberButton">{{:patient.age}} y</span>
+                    
+
+
+                    {{else}}
+                    Not Set
+                    {{/if}}
+
+                </td>
+                <td>{{:dateOfAppointment}}</td>
+                <td >
+                    {{if appointmentStatusEntity!=null}}
+                    <span class="marker_{{:appointmentStatusEntity.id}} rounded">{{:appointmentStatusEntity.name}}</span>
+                    
+                    {{/if}}
+                </td>
+                <td> {{if appointmentTypeEntity!=null}}
+                     <span class="marker_{{:appointmentTypeEntity.id}} rounded">{{:appointmentTypeEntity.name}}</span>
+                        
+                    {{/if}}
+                </td>
+                <td>{{:consultFee}}</td>
+                <td>{{:feeForClinic}}</td>
+                <td>{{:tokenNumber}}</td>
+
+
+            </tr>
+            {{else}}
+            No members...
+            {{/for}}
+        </tbody>
+
+
+    </table>
+</div>

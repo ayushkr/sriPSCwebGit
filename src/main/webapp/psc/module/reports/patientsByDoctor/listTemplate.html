@@ -1,0 +1,79 @@
+<center>
+<h4 >Report - Income from Consultation </h4>
+<table border="1">
+    <tbody>
+        <tr>
+            <td>
+                {{:~root.doctor}}
+            </td>
+            <td>
+                <h6> Summary</h6>
+                Total Consultation Fee  <span style="font-weight: bold">{{:obj.totalConsultFee}}</span>  <br>
+                Total Fee For Clinic  <span style="font-weight: bold" >{{:obj.totalFeeForClinic}}</span>  <br>
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<hr>
+<table  class="w3-table w3-striped w3-bordered" >
+    <thead>
+        <tr>
+            <th style="width:200px">Patient</th>
+            <th>Date Of Appointment</th>
+            <th>Status</th>
+            <th>type</th>
+            <th> Consult Fee 
+                <br> 
+                <span style="font-weight: bold">{{:obj.totalConsultFee}}</span>
+            </th>
+            <th>fee For Clinic
+                <br> 
+            <span style="font-weight: bold" >{{:obj.totalFeeForClinic}}</span>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {{for obj.appointmentEntitys}}
+        <tr onclick="go({{:id}})">
+            <td>
+                {{if patient!=null}}
+                {{:patient.name}} ({{:patient.age}})
+                {{else}}
+                Not Set
+                {{/if}}
+            </td>
+            <td>{{:dateOfAppointment}}</td>
+            <td >
+                {{if appointmentStatusEntity!=null}}
+                <span class="marker_{{:appointmentStatusEntity.id}} rounded">{{:appointmentStatusEntity.name}}</span>
+
+                {{/if}}
+            </td>
+            <td> {{if appointmentTypeEntity!=null}}
+                <span class="marker_{{:appointmentTypeEntity.id}} rounded">{{:appointmentTypeEntity.name}}</span>
+
+                {{/if}}
+            </td>
+            <td>{{:consultFee}}</td>
+            <td>{{:feeForClinic}}</td>
+
+
+
+        </tr>
+        {{else}}
+        No members...
+        {{/for}}
+    </tbody>
+
+
+</table>
+</center>
+<style>
+    td{
+        padding: 6px;
+
+    }
+</style>

@@ -1,0 +1,166 @@
+<!--doctor/CRU_template.html -->
+
+<div class="w3-bar w3-black">
+    <a class="w3-bar-item w3-button tablink w3-red" onClick="openCity(event, 'Basic')">Basic</a>
+    <a class="w3-bar-item w3-button tablink " onClick="openCity(event, 'Timing')">Timing</a>
+ 
+    <a class="w3-bar-item w3-button tablink " onClick="openCity(event, 'Fees')">Fees</a>
+    <a class="w3-bar-item w3-button tablink " onClick="openCity(event, 'Communication')">Communication</a>
+    <a class="w3-bar-item w3-button tablink " onClick="openCity(event, 'Admin')">Admin</a>
+</div>
+<br>
+Click one of the above category to edit 
+<!--basic-->
+<div id="Basic" class="w3-container w3-border city ">
+    <h2>Basic</h2>
+
+
+
+    <table border="1">
+        <thead></thead>
+        <tbody>
+            <tr>
+
+                <td>
+
+                    ID : 
+                    <span class="label label-info "> <b>{{:id}}</b> </span> <br> 
+                    <br>
+
+                    <div class="input-container">
+                        <i class="fa fa-user icon"> Doctor Name</i>
+                        <input  name='name' type="text" placeholder="0" data-link="name" class="input-field">
+                    </div>
+
+
+
+                    <div class="input-container">
+                        <i class="fa fa-user icon"> department</i>
+
+                        <input name='department' type="text" placeholder="0" data-link="department" class="input-field">
+                    </div>
+
+
+                </td>
+                <td>
+
+                    Profile Image <br>
+                    <img  id="preview" 
+                          style="border-radius: 20px;border-color: white;border-width: 2mm;
+                          width: 150px" 
+                          src="/clinicPlus/uploads/doctor_{{:id}}?time={{:creationTime}}" >
+                    <br>
+                    <div id="fileinfo" style="width: 200px;background-color: #99ccff;color: black">
+                        <div id="filename"></div>
+                        <div id="filesize"></div>
+                        <div id="filetype"></div>
+                        <div id="filedim"></div>
+                    </div>
+                    <form id="upload_form" enctype="multipart/form-data" method="post" >
+                        <input id="profileImage" name='profileImage'  type="hidden"  data-link="profileImage"   >
+                        <input id="profileImage_file" name='profileImage_file' onchange="selectAndUpload('doctor_{{:id}}', '/clinicPlus/api/doctor/fileUpload');" type="file" class="input-field"  >
+
+
+                    </form>
+
+                    <div id="error">This is not an image file</div>
+                    <div id="error2">An error occurred while uploading the file</div>
+                    <div id="abort">The upload has been canceled by the user or the browser dropped the connection</div>
+                    <div id="warnsize">Your file is very big. We can't accept it. Please select more small file</div>
+
+                    <div id="progress_info">
+                        <div id="progress"></div>
+                        <div id="progress_percent">&nbsp;</div>
+                        <div class="clear_both"></div>
+                        <div>
+                            <div id="speed">&nbsp;</div>
+                            <div id="remaining">&nbsp;</div>
+                            <div id="b_transfered">&nbsp;</div>
+                            <div class="clear_both"></div>
+                        </div>
+
+                    </div>
+                    <div id="upload_response" style="width: 2cm"></div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+    <span class="label label-default"> DESCRIPTION</span> 
+    <textarea name='description' placeholder='----'  data-link="description" class="input-field">
+    </textarea>
+
+
+</div> 
+<!--timing-->
+<div id="Timing" class="w3-container w3-border city city_hide">
+    <h2>Timing</h2>
+    
+    <span class="label label-default"> visitDay </span> 
+    <textarea name='visitDay' placeholder='----' rows='1' cols='1' data-link="visitDay" class="input-field">
+    </textarea>
+    <br>
+
+    <span class="label label-default"> visitTime </span> 
+    <input name='visitTime' type="text" placeholder="0" data-link="visitTime" class="input-field"> 
+    <br>
+
+    <br><br>
+</div>
+<!--Fees-->
+<div id="Fees" class="w3-container w3-border city city_hide">
+    <h2>Fees</h2>
+    <label for="fees">fees</label>  
+    <input name='fees' type="text" placeholder="0" data-link="fees" class="input-field" value="0">
+    <br>
+
+    <span class="label label-default"> feeforclinic</span> 
+    <input name='feeForClinic' type="text" placeholder="0" data-link="feeForClinic" class="input-field" value="0"> 
+    <br><br>
+</div>
+<!--communication-->
+<div id="Communication" class="w3-container w3-border city city_hide">
+    <h2>Communication</h2>
+    <label for="contactPhone">contactPhone</label>  
+    <input name='contactPhone' type="text" placeholder="0" data-link="contactPhone" class="input-field"> 
+
+
+    <label for="address">address</label>
+    <textarea name='address' placeholder='----' rows='4' cols='3' data-link="address" class="input-field">
+
+    </textarea>
+
+    <label for="email">email</label>
+    <input name='email' type="text" placeholder="0" data-link="email" class="input-field"> 
+    <br><br>
+</div>
+<!--admin-->
+<div id="Admin" class="w3-container w3-border city city_hide">
+    <h2>Admin</h2>
+
+    <label for="id">ID ( Don't edit id)</label>
+    <input name='id' type="text" data-link="id" class="input-field">
+
+    <label for="rid">RID</label>  {{:rid}}      
+    <input name='rid' type="hidden" data-link="rid">  <br>
+
+   
+
+    <span class="label label-default"> remarks </span> 
+
+
+
+
+    <textarea name='remarks' placeholder='----' rows='10' cols='3' data-link="remarks" class="input-field">
+    </textarea>
+    <br><br>
+</div>

@@ -1,0 +1,155 @@
+<!--doctor/CRU_template.html -->
+<br>
+<div id="printableArea"   title="DoctorId_{{:id}}_{{:name}}" >
+    
+    <div class="pageTitle">{{if id==0}} New  Doctor{{else}} Existing Doctor : {{:name}} {{/if}}  </div>
+
+    <form id='form_doctor' method="post" action="#/cmd/post">   
+        <input type='hidden' name='module_direct' value='doctor'>
+        <input type='hidden' name='redirect' value=' #/cmdc?module=doctor&action=/all/list'>
+
+        <table border="0">
+            <tbody>
+                <tr>
+                    <td>
+                        ID <span class="inp2" contenteditable="false" id="id"   data-link="id" >---</span>   <br>
+                        <input type="hidden" name="id" data-link="id" />
+                        <div class="inp_outer" style="width:400px;">
+                            <div class="title1">Name</div>
+                            <span class="inp2" contenteditable="true" id="name"   data-link="name" >---</span>
+                            <input type="hidden" name="name" data-link="name" />
+                        </div>
+                        <br>
+                        <div class="inp_outer" style="min-width:400px;">
+                            <div class="title1">Department</div>
+                            <span class="inp2" contenteditable="true" id="department"   data-link="department" >---</span>
+                            <input type="hidden" name="department" data-link="department" />
+                        </div>
+                        <br>
+                        <div class="inp_outer" style="min-width:400px;" >
+                            <div class="title1" >Description</div>
+                            <span class="inp2" contenteditable="true" id="description"   data-link="description" style="width:400px;">---</span>
+                            <input type="hidden" name="description" data-link="description" />
+                        </div>
+                        <br>
+                        <div class="inp_outer" style="min-width:400px;" >
+                            <div class="title1" >remediesFor</div>
+                            <span class="inp2" contenteditable="true" id="remediesFor"   data-link="remediesFor" style="width:400px;">---</span>
+                            <input type="hidden" name="remediesFor" data-link="remediesFor" />
+                        </div>
+                    </td>
+
+
+                    <td>
+                        <div class="inp_outer" style="min-height:50px;"
+                              onclick="document.getElementById('input_file_profileImage').click();"
+                             >
+                        <img  id="form_profileImage_img" 
+                            class="form_profileImage_img" 
+                              src="/uploads/doctor/{{:id}}_profileImage.jpeg?time={{:creationTime}}" 
+                               alt="doctor/{{:id}} not loaded"
+                              >
+                        </div>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+
+        <div class="inp_outer">
+            <div class="title1">visitDay</div>
+            <span class="inp2" contenteditable="true" id="visitDay"   data-link="visitDay" >---</span>
+            <input type="hidden" name="visitDay" data-link="visitDay" />
+        </div>
+        <div class="inp_outer">
+            <div class="title1">visitTime</div>
+            <span class="inp2" contenteditable="true" id="visitTime"   data-link="visitTime" >---</span>
+            <input type="hidden" name="visitTime" data-link="visitTime" />
+        </div>
+
+        <div class="inp_outer">
+            <div class="title1">feesList</div>
+            <span class="inp2" contenteditable="true" id="feesList"   data-link="feesList" >---</span>
+            <input type="hidden" name="feesList" data-link="feesList" />
+        </div>
+
+
+        <div class="inp_outer">
+            <div class="title1">fees</div>
+            <span class="inp2" contenteditable="true" id="fees"   data-link="fees" >---</span>
+            <input type="hidden" name="fees" data-link="fees" />
+        </div>
+
+
+
+        <div class="inp_outer">
+            <div class="title1">feeForClinic</div>
+            <span class="inp2" contenteditable="true" id="feeForClinic"   data-link="feeForClinic" >---</span>
+            <input type="hidden" name="feeForClinic" data-link="feeForClinic" />
+        </div>
+        <br>
+        <div class="inp_outer">
+            <div class="title1">contactPhone</div>
+            <span class="inp2" contenteditable="true" id="contactPhone"   data-link="contactPhone" >---</span>
+            <input type="hidden" name="contactPhone" data-link="contactPhone" />
+        </div>
+
+        <div class="inp_outer">
+            <div class="title1">address</div>
+            <span class="inp2" contenteditable="true" id="address"   data-link="address" >---</span>
+            <input type="hidden" name="address" data-link="address" />
+        </div>
+        <div class="inp_outer">
+            <div class="title1">email</div>
+            <span class="inp2" contenteditable="true" id="email"   data-link="email" >---</span>
+            <input type="hidden" name="email" data-link="email" />
+        </div>
+        <br>
+        <div class="inp_outer">
+            <div class="title1">fixedId</div>
+            <span class="inp2" contenteditable="true" id="fixedId"   data-link="fixedId" >---</span>
+            <input type="hidden" name="fixedId" data-link="fixedId" />
+        </div>
+
+        <div class="inp_outer">
+            <div class="title1">newId</div>
+            <span class="inp2" contenteditable="true" id="newId"   data-link="newId" >---</span>
+            <input type="hidden" name="newId" data-link="newId" />
+        </div>
+
+        <div class="inp_outer">
+            <div class="title1">remarks</div>
+            <span class="inp2" contenteditable="true" id="remarks"   data-link="remarks" >---</span>
+            <input type="hidden" name="remarks" data-link="remarks" />
+        </div>
+
+
+
+        <div class="inp_outer"   onclick="popup_selection_obj(
+                        {
+                            'value':'{{:dateOfJoining}}',
+                            'entity_select': 'dateForOrganisation',
+                            'input': 'dateOfJoining'
+                        }
+                )">
+            <input type="hidden" id="dateOfJoining" name="dateOfJoining" data-link="dateOfJoining" />
+            <div class="title1">dateOfJoining</div>
+            <span id='dateOfJoining_display' class="inp2">{{:dateOfJoining}}</span>
+        </div>
+
+
+    </form>
+
+    <form id="form_profileImage" 
+          enctype="multipart/form-data" >
+        <input  name='fileLabel' value="{{:id}}_profileImage" type="hidden"     >
+        <input id="input_file_profileImage" name='file'  type="file" 
+               onchange="submitFormAKR('form_profileImage', '/clinicPlus/api/doctor/profileImage');"
+               style="display: none"
+               >
+
+    </form>
+    <br>
+</div>
+

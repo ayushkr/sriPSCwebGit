@@ -1,0 +1,80 @@
+
+
+   
+<div id="formDiv" class="pharmacyCashBill_oneRowTemplate" >
+    <center>
+    
+     
+             
+    <input type="button"  value="save" onclick="pharmacyCashBill.saveEdit()" class="w3-button w3-green">
+    <input type="button" onclick="pharmacyCashBill.deleteRow()"  value="delete" class="w3-button w3-red">
+     <div onclick="hideDivAy('formDiv')" 
+             class=" w3-btn w3-blue">Close <i class="fa fa-times"> </i></div>
+    
+    
+    <!--row form-->
+    <form name="f1" id="f1" action="#/cmd/post" method="POST">
+        <input type="hidden" name="addOrDeleteFlag" value="edit"> 
+        <input type="hidden" name="module_direct" value="pharmacyBillRow"> 
+        <input type="hidden" name="redirect" value='#/cmd?directUrl=/clinicPlus/module/pharmacyBillRowByBillId/list.html&id={{:pharmacyBill.id}}'> 
+
+        
+        <input type="hidden" id="id" name="id" data-link="id" />
+        <input  type="hidden" id="pharmacyBill" name="pharmacyBill" 
+                                    value="{{:pharmacyBill.id}}"  />
+        <table border="1">
+            <tbody>
+                <tr>
+                   
+                    <td>
+                        <div class="inp1" onclick="popup_selection_obj(
+                                        {
+                                            'entity_select': 'medicineStock',
+                                            'input': 'medicineStock'
+                                        }
+
+                                )" >
+                            <div class="title1"    >medicineStock</div>
+                            {{if medicineStock!=null}}
+                            <input  type="hidden" id="medicineStock" name="medicineStock" 
+                                    value=" {{:medicineStock.id}}"/>
+                            <span id="medicineStock_display" class="inp2">     
+                                {{:medicineStock.id}}_ {{:medicineStock.medicineBrandName.brandName}}
+                            </span>
+
+                            {{else}}
+                            <input  type="hidden" id="medicineStock" name="medicineStock" 
+                                    />
+                            <span id="medicineStock_display">     
+                                Not set 
+                            </span>
+                            {{/if}}
+
+
+                        </div>
+                    </td>
+                    <td>
+                        <div class="inp1">
+                            <div class="title1">qty</div>
+                            <span class="inp2" contenteditable="true" id="qty_span"   data-link="qty" 
+                                  onkeydown="pharmacyCashBill.calculateAmount(1)" 
+                                  >---</span>
+                            <input type="hidden" name="qty" id="qty"  data-link="qty" onkeydown="pharmacyCashBill.calculateAmount(1)" />
+                        </div>
+                    </td>
+                    <td>
+                        <div class="inp1" onclick="pharmacyCashBill.calculateAmount(1)">
+                            <div class="title1">amount</div>
+                            <span class="inp2" contenteditable="false" id="amount_disp"   data-link="amount" 
+                                  >---</span>
+                            <input type="hidden" id="amount" name="amount" data-link="amount" />
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </form>
+  </center>
+</div>
+

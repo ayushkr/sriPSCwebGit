@@ -1,0 +1,60 @@
+
+<div class="pageTitle">{{if id==0}} New  {{else}} Existing  : {{:name}} {{/if}}  </div>
+<form id='form_pharmacyBill' method="post" action="#/cmd/post">
+    <input type='hidden' name='redirect' value=' #/cmdc?module=pharmacyBill&action=/all/list'>
+
+    <input type='hidden' name='module_direct' value='pharmacyBill'>
+    id {{:id}} <br>
+    <input type="hidden" name="id" data-link="id" />
+
+
+    <div class="inp_outer"
+         onclick="popup_selection_obj(
+                         {
+                             'value': '{{:dateOfBill}}',
+                             'entity_select': 'dateForOrganisation',
+                             'input': 'dateOfBill'
+                         }
+                 )"
+         >
+        <div class="title1">
+            dateOfBill
+        </div>
+        <span id="dateOfBill_display" class="inp2">{{:dateOfBill}}</span>
+        <input id="dateOfBill" type="hidden" name="dateOfBill" data-link="dateOfBill" />
+    </div>
+
+
+    <div class="inp_outer"
+
+         onclick="popup_selection_obj(
+                         {
+                             'entity_select': 'appointment',
+                             'input': 'appointment'
+                         }
+                 )"
+         >
+        <div class="title1"   > appointment</div>
+        {{if appointment!=null }}
+        <input  type="hidden" id="appointment" name="appointment" 
+                value="{{:appointment.id}}"  />
+        <span id="appointment_display" class="inp2">     
+
+            No: {{:appointment.id}}<br> {{:appointment.dateOfAppointment}}<br><b>{{:appointment.patient.name}}</b><br>{{:appointment.doctor.name}}
+        </span>   
+        {{else}}
+        <input  type="hidden" id="appointment" name="appointment" />
+        <span id="appointment_display">     
+            Not set                
+        </span>
+        {{/if}}    
+    </div>
+
+    <div class="inp_outer">
+        <div class="title1"   >  Remarks</div>
+          <span class="inp2" contenteditable="true" id="remarks"   data-link="remarks" >---</span>
+                              
+        
+        <input type="hidden" name="remarks" data-link="remarks" />
+    </div>
+</form>

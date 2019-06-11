@@ -1,0 +1,119 @@
+
+<script src='/psc/dashboard/helper_for_controller.js'></script>
+<script src='/psc/dashboard/controller.js'></script>
+
+<!--nav menu-->
+<div  id="navbar" class="akr-sidebar w3-bar-block  w3-card " style="width:160px;">
+    <a onclick=" populateCreate2('question', 0, 'main1')" 
+       class="w3-bar-item w3-button">questions </a> 
+ 
+
+    <a href="#/file?path=help/1.html" 
+       class="w3-bar-item w3-button ">Help </a> 
+    <a href="#/file?path=help/search.html" 
+       class="w3-bar-item w3-button ">Search </a> 
+
+
+
+</div>
+
+<div class="w3-container" style="margin-left:160px">
+
+    <div id="alert_akr" >alert_akr
+        <div onclick="hideDivAy('alert_akr')" 
+             class="entity_select_closeButton w3-btn w3-blue">Close <i class="fa fa-times"> </i></div>
+        <div id="alert_akr_head">alert_akr_head</div>
+        <div id="alert_akr_body">alert_akr_body</div>
+    </div> 
+    <center>  
+    <span id="dateCurrent" class="dateCurrent"> dateCurrent</span>
+    </center>
+    <div id="main1">
+        <div id="main1_menu" >
+            main1_menu
+        </div>
+       
+
+        <div id="main1_inner">
+            main1_inner
+        </div>
+        <div id="main1_paging" >
+            main1_paging
+        </div>
+        <br>
+       
+    </div>
+    <div id='main2' >
+
+        <div onclick="hideDivAy('main2')" 
+             class="entity_select_closeButton w3-btn w3-blue">Close <i class="fa fa-times"> </i></div>
+
+        <div id="main2_menu" >main2_menu
+        </div>
+        <div id="main2_paging" >main2_paging
+        </div>
+        
+        <div id="main2_inner">main2_inner
+
+        </div>
+    </div>
+    <div id='modalDate' > 
+        <div onclick="hideDivAy('modalDate')" id='entity_select_closeButton_modalDate'
+             class="entity_select_closeButton w3-btn w3-blue">Close <i class="fa fa-times"> </i></div>
+        <div id="modalDate_inner">modalDate</div>
+    </div>
+    <div id='main3' >
+        <div onclick="hideDivAy('main3')" 
+             class="entity_select_closeButton w3-btn w3-blue">Close <i class="fa fa-times"> </i></div>
+        <div id="main3_menu">main3_menu</div>
+        <div id="main3_paging" >
+        </div>
+        <div id="main3_inner">main3_inner</div>
+    </div>
+
+</div>
+
+<script>
+//    dashboard
+    var color_sel = " w3-teal ";
+    function myAccFunc() {
+        var x = document.getElementById("demoAcc");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+            x.previousElementSibling.className += color_sel;
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+            x.previousElementSibling.className =
+                    x.previousElementSibling.className.replace(color_sel, "");
+        }
+    }
+
+    function myDropFunc() {
+        var x = document.getElementById("demoDrop");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+            x.previousElementSibling.className += color_sel;
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+            x.previousElementSibling.className =
+                    x.previousElementSibling.className.replace(color_sel, "");
+        }
+    }
+
+    function show_menu_xxx(id) {
+        var x = document.getElementById(id);
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+            x.previousElementSibling.className += color_sel;
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+            x.previousElementSibling.className =
+                    x.previousElementSibling.className.replace(color_sel, "");
+        }
+    }
+</script>
+
+
+
+<div id="json" c=""></div>
+</body>

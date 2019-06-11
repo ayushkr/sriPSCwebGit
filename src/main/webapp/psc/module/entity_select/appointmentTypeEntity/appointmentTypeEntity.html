@@ -1,0 +1,19 @@
+
+
+Filter By Name <input  type="text" onkeyup="filter('name')"  ><br>
+
+{{for obj}}
+<div id="select_{{:id}}" onclick="selectThis('appointmentTypeEntity', {{:id}}, '{{:name}}')" 
+     class="select_5">   
+    <d id='{{:id}}' name="{{:name}}"  >
+   
+
+  {{:id}}.  {{:name}}
+  
+
+</d>
+</div>
+
+
+
+{{/for}}

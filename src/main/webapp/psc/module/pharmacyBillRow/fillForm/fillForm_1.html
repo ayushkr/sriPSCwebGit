@@ -1,0 +1,86 @@
+<div id='main2' >main2</div>
+
+<h3>pharmacy Bill</h3>
+
+id {{:id}} <br>
+<input type="hidden" name="id" data-link="id" />
+<table border='1'>
+    <tbody>
+
+        <tr>
+            <td>
+                appointment
+            </td>
+            <td>
+                <div style='border: 1px;' 
+
+                     onclick="popup_selection('appointment')"
+                     >
+                    <span id="appointment_display">     
+                        {{if (appointment!=null) }}
+                        {{:appointment.id}}
+
+                        {{else}}
+                        ----
+                        {{/if}}                           
+                    </span>
+                </div>
+            </td>
+        </tr>
+
+
+
+        <tr>
+            <td>
+                medicineStock
+            </td>
+            <td>
+
+                <div style='border: 1px;' 
+
+                     onclick="popup_selection('medicineStock')"      
+                     >
+                    <span id="medicineStock_display">     
+                        {{if medicineStock!=null}}
+                        {{:medicineStock.id}}
+                        ---
+                        {{else}}
+                        ----
+                        {{/if}}
+                    </span>
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                qty
+            </td>
+            <td>
+                <input  type="text" id="qty" name="qty" onkeyup="calculateAmount(1)"
+                        onclick="calculateAmount(1)"
+                        data-link="qty"/>   
+
+            </td>
+        </tr>
+
+         <tr>
+            <td>
+                Amt
+            </td>
+            <td>
+                <input  type="text" id="amount" name="amount"   onclick="calculateAmount(1)"
+                        data-link="amount"/>   
+ saved value {{:amount}}
+            </td>
+        </tr>
+
+
+
+    </tbody>
+</table>
+<input  type="hidden" id="appointment" name="appointment" 
+        data-link="appointment.id"/>
+
+<input  type="hidden" id="medicineStock" name="medicineStock" 
+        data-link="medicineStock.id"/>

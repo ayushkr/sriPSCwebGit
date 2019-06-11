@@ -1,0 +1,93 @@
+
+<p class="pageTitle">
+    Select a Patient
+</p>
+
+<table>
+    <tbody>
+        <tr>
+            <td>
+                Filter By id 
+            </td>
+            <td>
+                <input  type="text" onkeyup="filter('id')"  >
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                Filter By Name 
+            </td>
+            <td>
+                <input  type="text" onkeyup="filter('name')"  >
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                Filter By age 
+            </td>
+            <td>
+                <input  type="text" onkeyup="filter('age')"  >
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                Filter By contactPhone 
+            </td>
+            <td>
+                <input  type="text" onkeyup="filter('contactPhone')"  >
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+
+
+<div class="Table">
+    <div class="Title">
+
+    </div>
+
+    <div class="Heading">
+         <div class="Cell"><p>id</p></div>
+        <div class="Cell"><p>name</p></div>
+        <div class="Cell"><p>age</p></div>
+        <div class="Cell"><p>phone</p></div>
+    </div>
+    {{for obj}}
+    <div id="select_{{:id}}"  class="Row"
+         >   
+        <div class="Cell" >{{:id}}</div>
+        <div class="Cell" >{{:name}}</div>
+        <div class="Cell" >{{:age}}</div>
+        <div class="Cell" >{{:contactPhone}}</div>
+        
+         <div class="Cell"> 
+            <input type="button" class="entity_select_selectButton" 
+                   onclick="selectThis('{{:~root.moduleName}}', {{:id}}, '{{:name}}')"  
+                   value="Select">
+            <input type="button"  
+                   class="entity_select_editButton" 
+                   onclick="populateCreate2('{{:~root.moduleName}}', {{:id}}, 'main3');"
+                   value="Edit"
+                   >
+        </div>
+        
+        
+        
+         <d id='{{:id}}' 
+           name="{{:name}}" 
+           age="{{:age}}" 
+           contactPhone="{{:contactPhone}}"
+           ></d>
+    </div>
+
+    {{/for}}
+</div>
+
+
+
+
+

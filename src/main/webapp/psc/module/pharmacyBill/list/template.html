@@ -1,0 +1,42 @@
+<div id="printableArea"   title="PharmacyBill_List" >
+   <table cellspacing="1" cellpadding="5" border="0" style="width:85%;">
+        <thead>
+            <tr class="bluestrp">
+                <td>id</td>
+                 <td>date</td>
+                <td>appointment</td>
+                <td>remarks</td>
+                <td>pharmacyBillRow</td>
+            </tr>
+        </thead>
+        <tbody>
+
+            {{for obj.content}}
+            <tr 
+               
+                class="firstrow">
+                <td>bill_{{:id}}</td>
+                 <td>{{:dateOfBill}}</td>
+                 <td onclick="go({{:id}},'pharmacyBill')">
+                        No: {{:appointment.id}}<br> {{:appointment.dateOfAppointment}}<br><b>{{:appointment.patient.name}}</b><br>{{:appointment.doctor.name}}
+        
+                </td>
+                <td>{{:remarks}}</td>
+                <td>
+                    
+                    
+                    
+                    
+                    <a class="ay-btn dsc_blue" 
+                       onclick="pharmacyCashBill.render_list({{:id}})"
+                      > 
+                      Edit this Bill
+                    </a>
+                </td>
+            </tr>       
+            {{else}}
+    No members...
+            {{/for}}
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,47 @@
+<!-- entity /update/template_menuTop_update-->
+<br>
+<div id="widgets" class="widgetBar">
+
+
+
+
+    {{if edit}}
+    <a onclick="goto_delete('{{:moduleName}}', '{{:id}}')" style="margin-left: 2cm;" data-toggle="tooltip" title="Delete" 
+       class="w3-btn w3-red"
+       >
+        <i class="fa fa-trash"  ><span style="margin-left: 2mm;"> Delete</span> </i>
+    </a> 
+
+    <a onclick="printDiv_navOff('navbar')" data-toggle="tooltip" title="Print this page" 
+       class="w3-btn w3-blue"
+       > <i class="fa fa-print"> Print </i>
+    </a> 
+    {{/if}}
+    {{if divName!='main3'}} 
+
+    <a onclick="goto_list('{{:moduleName}}')"
+       data-toggle="tooltip" title="List"
+       class="w3-btn w3-blue"
+       >
+        <i class="fa fa-list"  ><span style="margin-left: 2mm;"> List</span> </i>
+    </a> 
+
+
+    {{/if}}
+    
+     {{if moduleName!='question'}} 
+
+    <a class="w3-button w3-blue" data-toggle="tooltip" title="Save" 
+           onclick="save('{{:moduleName}}')">
+        <i class="fa fa-save"  > Save</i>
+    </a>
+   {{/if}}
+   
+
+
+
+
+</div>
+
+
+

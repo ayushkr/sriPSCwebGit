@@ -1,0 +1,19 @@
+<div id="menuTop3"></div>
+<input  class="w3-btn w3-blue closeButton" type="button" onclick="close_main3()" value="close">
+<div id="patient_main3"></div>
+
+<script>
+//    includeHtml("menuTop3", "/clinicPlus/module/entity/crud/update/menuTop.html");
+    aylinker({
+            urlOfTemplate: "/clinicPlus/module/patient/fillForm/template.html?ran=" + Math.random(),
+            selector: "patient_main3",
+            data: mn.module['patient_new']
+        });
+    
+    
+    function close_main3(){
+        document.getElementById('main3').style="display:none";
+        
+    }
+    
+</script>

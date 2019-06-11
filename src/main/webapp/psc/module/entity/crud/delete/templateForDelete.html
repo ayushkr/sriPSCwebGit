@@ -1,0 +1,22 @@
+Status :{{:status}} <br>
+sessionExpired : {{:sessionExpired}} <br>
+
+
+
+{{if status=='success'}}
+<div style="background-color: greenyellow;padding: 1cm">
+    <h3>Deleted </h3>
+    message: {{:message}} <br>
+    
+</div>
+{{else}}
+<div style="background-color: salmon;padding: 1cm">
+    <h3 >Error </h3>
+
+    message = {{:message}} <br>
+</div>
+{{/if}}
+
+<a onclick="goto_list()" data-toggle="tooltip" title="List" class="w3-btn w3-blue">
+        <i class="fa fa-smile"><span > List</span> </i>
+    </a>

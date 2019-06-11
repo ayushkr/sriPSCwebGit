@@ -1,0 +1,21 @@
+<div id="menuTop3"></div>
+ 
+   
+   <input type="button" onclick="closePatientForm()" value="closePatientForm">
+<div id="doctor_main3"></div>
+
+<script>
+//    includeHtml("menuTop3", "/clinicPlus/module/entity/crud/update/menuTop.html");
+    aylinker({
+            urlOfTemplate: "/clinicPlus/module/doctor/fillForm.html?ran=" + Math.random(),
+            selector: "doctor_main3",
+            data: mn.module['doctor_new']
+        });
+    
+    
+    function closePatientForm(){
+        document.getElementById('main3').innerHTML="";
+         popup_selection('doctor');
+    }
+    
+</script>

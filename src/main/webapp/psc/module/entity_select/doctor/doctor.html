@@ -1,0 +1,57 @@
+
+<p class="pageTitle"> Select a Doctor</p>
+Filter By Name <input  type="text" onkeyup="filter('name')"  ><br>
+Filter By department <input  type="text" onkeyup="filter('department')"  ><br>
+
+Filter By description <input  type="text" onkeyup="filter('description')"  ><br>
+Filter By remediesFor <input  type="text" onkeyup="filter('remediesFor')"  ><br>
+
+
+
+<div class="Table">
+    <div class="Title">
+
+    </div>
+
+    <div class="Heading">
+
+        <div class="Cell"><p>name</p></div>
+        <div class="Cell"><p>dept</p></div>
+        <div class="Cell"><p>remedies</p></div>
+        <div class="Cell"><p>actions</p></div>
+    </div>
+
+
+
+    {{for obj}}
+    <div class="Row" id="select_{{:id}}"  >
+        <div class="Cell">  {{:name}} </div>
+        <div class="Cell">  {{:department}} </div>
+        <div class="Cell">  {{:remediesFor}} </div>
+        <div class="Cell"> 
+            <input type="button" class="entity_select_selectButton" 
+                   onclick="selectThis('{{:~root.moduleName}}', {{:id}}, '{{:name}}<br>Fees({{:feesList}})')"  
+                   value="Select">
+            <input type="button"  
+                   class="entity_select_editButton" 
+                   onclick="populateCreate2('{{:~root.moduleName}}', {{:id}}, 'main3');"
+                   value="Edit"
+                   >
+        </div>
+
+        <d id='{{:id}}' 
+           name="{{:name}}" 
+           department="{{:department}}" 
+           remediesFor="{{:remediesFor}}" 
+           description="{{:description}}"
+           >
+        </d>
+
+    </div>
+
+
+
+
+    {{/for}}
+</div>
+

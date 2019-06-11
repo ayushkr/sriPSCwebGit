@@ -1,0 +1,62 @@
+
+
+Select a medicine stock
+Filter By medicineBrandName.brandName 
+<input  type="text" onkeyup="filter('medicineBrandName.brandName')"  >
+<br>
+
+
+<div class="Table">
+    <div class="Title">
+
+    </div>
+
+    <div class="Heading">
+        <div class="Cell"><p>id</p></div>
+        <div class="Cell"><p>brandNameId</p></div>
+        <div class="Cell"><p>vendor</p></div>
+        <div class="Cell"><p>expiryDate</p></div>
+        <div class="Cell"><p>batch</p></div>
+    </div>
+
+
+    {{for obj}}
+    <div class="Row" id="select_{{:id}}"  >
+   <div class="Cell"> {{:id}} </div>
+        <div class="Cell">    {{if medicineBrandName!=null}}
+            {{:medicineBrandName.brandName}}
+            {{/if}} </div>
+        
+         <div class="Cell"> {{:vendor.name}} </div>
+        <div class="Cell">  {{:expiryDate}} </div>
+        <div class="Cell">  {{:batch}} </div>
+
+
+
+        <div class="Cell"> 
+            <input type="button" class="entity_select_selectButton" 
+                   onclick="selectThis('{{:~root.moduleName}}', {{:id}}, ' {{:medicineBrandName.brandName}}')"  
+                   value="Select">
+            <input type="button"  
+                   class="entity_select_editButton" 
+                   onclick="populateCreate2('{{:~root.moduleName}}', {{:id}}, 'main3');"
+                   value="Edit"
+                   >
+        </div>
+
+        <d id='{{:id}}' 
+           medicineBrandName.brandName="{{:medicineBrandName.brandName}}"
+
+           >
+        </d>
+
+    </div>
+
+
+
+
+    {{/for}}
+</div>
+
+
+

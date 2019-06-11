@@ -1,0 +1,240 @@
+<!--appointment/fillForm.html-->
+
+<div class="pageTitle">{{if id==0}} New  Appointment{{else}}
+    <i class="fa fa-edit"  > </i>
+    Existing Appointment : {{:id}} {{/if}} 
+</div>
+
+{{if id==0}}
+
+{{else}}
+<a class="w3-btn w3-blue" onclick="patientCard_show({{:id}})" >
+    show patient Card  </a>
+<hr>
+{{/if}}
+<div class="w3-bar w3-blue-gray">
+    <a class="w3-bar-item w3-button tablink w3-red" onClick="openCity(event, 'Basic')">Basic</a>
+{{if id!=0}}
+    <a class="w3-bar-item w3-button tablink " onClick="openCity(event, 'Files')">Files</a>
+    {{/if}}
+</div>
+
+
+<form id='form_appointment' method="post" action="#/cmd/post">
+
+
+    <div id="Basic" class="w3-container w3-border city ">
+
+        <input type='hidden' name='module_direct' value='appointment'>
+
+        <input type='hidden' name='redirect' value=' #/cmdc?module=appointment&action=/all/list'>
+        <input type="hidden" name="id" data-link="id" />
+
+
+
+
+
+        <div class="inp_outer" >
+            <div class="inp1" 
+                 onclick="popup_selection_obj(
+                     {
+                     'value': '{{:dateOfAppointment}}',
+                             'entity_select': 'dateForOrganisation',
+                             'input': 'dateOfAppointment'
+                     }
+                     )"
+                 >
+                <div class="title1">Date of Appointment/consultation</div>
+
+                <span id='dateOfAppointment_display' class="inp2" >{{:dateOfAppointment}}</span>
+                <input id="dateOfAppointment" name='dateOfAppointment' type="hidden" data-link="dateOfAppointment"> 
+            </div>
+        </div>
+
+        <!--doctor-->
+        <div class="inp_outer" style="min-width: 200px">
+            <input id="doctor" name='doctor' type="hidden" data-link="doctor.id" value="1"> 
+            <div class="inp1" 
+                 onclick="popup_selection_obj(
+                     {
+                     'entity_select': 'doctor',
+                             'input': 'doctor'
+                     }
+                     )"
+                 >
+                <div class="title1"> Doctor </div>
+                {{if doctor}}
+                <span id="doctor_display" class="inp2" >
+                    {{:doctor.name}} 
+                    <br>
+                    <span style="font-size: 0.6em;text-align: right;"> Fees ({{:doctor.feesList}} )</span>
+
+
+                </span>
+                {{else}} --- {{/if}}
+            </div>
+        </div>
+
+        <!--patient-->
+        <div class="inp_outer" style="min-width: 200px">
+            <input id="patient" name='patient' type="hidden" data-link="patient.id" value="1" > 
+            <div class="inp1" 
+                 onclick="popup_selection_obj(
+                     {
+                     'entity_select': 'patient',
+                             'input': 'patient'
+                     }
+                     )"
+                 >
+
+                <div class="title1">Patient </div>
+                <span id='patient_display' class="inp2">
+                    {{if patient}}{{:patient.name}}{{else}} --- {{/if}}
+                </span>
+            </div>
+        </div>
+        <br>
+        <div class="inp_outer">
+            <div class="inp1" 
+                 onclick="popup_selection_obj(
+                     {
+                     'entity_select': 'appointmentTypeEntity',
+                             'input': 'appointmentTypeEntity'
+                     }
+                     )"
+                 >
+                <div class="title1">appointmentTypeEntity</div>
+                {{if appointmentTypeEntity!=null}}
+                <input   type="hidden" id="appointmentTypeEntity" name="appointmentTypeEntity" 
+                         data-link="appointmentTypeEntity.id"   />
+                <span id="appointmentTypeEntity_display" class="inp2" >     
+                    {{:appointmentTypeEntity.name}}   
+                </span>
+
+
+
+                {{else}}
+                <span id="appointmentTypeEntity_display" class="inp2"  >     
+                    Not set 
+                </span>
+                <input  
+                    type="hidden" id="appointmentTypeEntity" name="appointmentTypeEntity"   />
+                {{/if}}
+
+            </div>
+
+        </div>
+
+        <div class="inp_outer">
+            <div class="inp1" >
+                <div class="title1">consultFee</div>
+                <input  type="text" id="consultFee" name="consultFee" data-link="consultFee"  /> 
+            </div>
+        </div>
+
+        <div class="inp_outer"> 
+            <div class="inp1" >
+                <div class="title1">feeForClinic</div>
+                <input  type="text" id="feeForClinic" name="feeForClinic" data-link="feeForClinic"  /> 
+            </div>
+        </div>
+
+        <br>
+        <div class="inp_outer">
+
+            <div class="inp1" 
+
+                 onclick="popup_selection_obj(
+                     {
+                     'entity_select': 'appointmentStatusEntity',
+                             'input': 'appointmentStatusEntity'
+                     }
+                     )"
+
+                 >
+
+                <div class="title1">appointmentStatusEntity</div>
+                {{if appointmentStatusEntity!=null}}
+                <input  type="hidden" id="appointmentStatusEntity" name="appointmentStatusEntity" data-link="appointmentStatusEntity.id"  />
+                <span id="appointmentStatusEntity_display" class="inp2" >        
+                    {{:appointmentStatusEntity.name}}     
+                </span>
+                {{else}}
+
+                <input  type="hidden" id="appointmentStatusEntity" name="appointmentStatusEntity"   />
+                <span id="appointmentStatusEntity_display" class="inp2" >        
+                    not set  
+                </span>
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="inp_outer">
+            <div class="inp1" >
+                <div class="title1">tokenNumber</div>
+                {{if tokenNumber==0}} Save to generate Token number {{/if}}
+            </div>
+        </div>
+
+
+
+        <div class="inp_outer">
+            <div class="inp1" >
+                <div class="title1">bookId</div>
+                <input  type="text" id="bookId" name="bookId" data-link="bookId"   /> 
+            </div>
+        </div>
+
+
+    </div>
+</form>
+
+
+{{if id!=0}}
+<!--file uploads-->
+<div id="Files" class="w3-container w3-border city city_hide">
+
+
+
+    <form id="form_prescription" 
+          enctype="multipart/form-data" >
+        <div style="position: absolute;top:0px;background-color: white">   p <input  name='patientId' value="{{:patient.id}}" type="text"     ><br>
+            d <input  name='doctorId' value="{{:doctor.id}}" type="text"     ><br>
+            name  <input  name='name' value="ssss" type="text"     ><br>
+        </div>
+
+        <table border='1'>
+            <tbody>
+                <tr>
+
+                    <td> <h2>Files</h2></td>
+                    <td style="padding: 0px">
+                        Show <select name="category" id="category" onchange="listFiles({{:patient.id}}, this.value, 'fileList')"  >
+
+                            <option >prescription</option>
+                            <option >labReport</option>
+                        </select>
+                    </td>
+                    <td >
+                       <a onclick="document.getElementById('input_file_prescription').click()" 
+                               data-toggle="tooltip" title="Add New " class="button button5" 
+                               > <i class="fa fa-plus"> </i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+         <input id="input_file_prescription" name='file'  type="file"
+           onchange="submitFormAKR('form_prescription', '/clinicPlus/api/patient/prescription');
+                                   listFiles({{:patient.id}}, document.getElementById('category').value, 'fileList');
+           "
+           style="display: none"
+           >
+    </form>
+
+   
+    <h3> List of existing files for this patient</h3>
+    <div id="fileList" style=""> {{:~listFiles(patient.id,'prescription','fileList')}}</div>
+</div>
+{{/if}}
